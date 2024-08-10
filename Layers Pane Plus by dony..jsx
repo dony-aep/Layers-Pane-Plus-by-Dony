@@ -1,4 +1,4 @@
-/* Version 1.6.1
+/* Version 1.6.2
 
  Layers Pane Plus by Dony
 
@@ -41,6 +41,8 @@ function createTextLayer() {
         return;
     }
 
+    app.beginUndoGroup("Create Text Layer");
+
     // Store the original number of layers
     var originalLayerCount = comp.numLayers;
 
@@ -49,19 +51,31 @@ function createTextLayer() {
 
     // Check if a new layer was added
     if (comp.numLayers > originalLayerCount) {
-        var newLayer = comp.layer(1);
+        var newLayer = comp.layer(comp.numLayers);
         
-        // Keep the name given by the user in the native dialog
-        var userGivenName = newLayer.name;
-        
-        // If the user didn't change the default name, we can add a number to make it unique
-        if (userGivenName === "Text") {
-            newLayer.name = getNextLayerName("Text");
-        } else {
-            // If the user gave a custom name, we keep it but ensure it's unique
-            newLayer.name = getUniqueLayerName(userGivenName, comp);
+        // Function to update layer name
+        function updateLayerName() {
+            var userGivenName = newLayer.text.sourceText.value;
+            
+            if (newLayer.name === "<empty text layer>") {
+                if (userGivenName === "") {
+                    newLayer.name = getNextLayerName("Text");
+                } else {
+                    newLayer.name = getUniqueLayerName(userGivenName, comp);
+                }
+            }
         }
+
+        // Add an event listener to detect changes in the text
+        newLayer.text.sourceText.expression = "value;";
+
+        // Update name if text value changes
+        newLayer.text.sourceText.addProperty("Source Text").expression = "if (value !== text.sourceText.value) { value = text.sourceText.value; updateLayerName(); }";
+
+        updateLayerName(); // Initial update in case the text value is already set
     }
+
+    app.endUndoGroup();
 }
 
 // Function to create a solid layer
@@ -381,7 +395,7 @@ function myScript(thisObj) {
         var myPanel = (thisObj instanceof Panel) ? thisObj : new Window("palette", "Dockable Script", undefined, { resizeable: true, closeButton: false });
 
         var res = "group{orientation:'column', alignChildren:['center','top'],\
-         demoText: StaticText{text:'Beta Script! - V1.6.1', alignment:['center','top']},\
+         demoText: StaticText{text:'Beta Script! - V1.6.2', alignment:['center','top']},\
          groupOne: Group{orientation:'row', alignChildren:['left','top'], spacing: 10,\
             createTextButton: IconButton{image: 'icons-white/path_to_text_icon.png', helpTip: 'Create Text Layer'},\
             createSolidButton: IconButton{image: 'icons-white/path_to_solid_icon.png', helpTip: 'Create Solid Layer'},\

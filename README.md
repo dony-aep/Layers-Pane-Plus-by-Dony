@@ -24,7 +24,7 @@
 - Fixed error handling issue for layer naming
 - Improved compatibility with various After Effects versions
 
-### v1.6.1 (Current)
+### v1.6.1
 - Updated Text, Null Object, Shape, Camera, and Adjustment layer creation to use native After Effects commands
 - Fixed issues with Shape and Adjustment layer creation
 - Improved error handling and user feedback for all layer creation functions

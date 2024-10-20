@@ -1,66 +1,28 @@
-# Layers Pane Plus by Dony
- This script provides advanced functionality for creating and managing layers in Adobe After Effects.  It includes features for creating various layer types, deleting layers, and sequencing layers.
+# Layers Pane Plus by dony.
+
+## Description
+Layers Pane Plus is an advanced script for Adobe After Effects that provides extended functionality for layer creation and management. Designed to enhance workflow, this script offers an intuitive user interface with icon buttons for various layer operations.
+
+## Current Version
+**v1.6.5** - This is the most recent and stable version of the script.
 
 ## Installation
-1. Navigate to the After Effects ScriptUI Panels folder:
-   
+1. Locate the After Effects ScriptUI Panels folder:
+   ```
    C:\Program Files\Adobe\Adobe After Effects [Version]\Support Files\Scripts\ScriptUI Panels
-   
-2. Place the script file in this folder.
-3. Place the folder containing the icons in the same destination as the script.
+   ```
+2. Place the script file (`Layers Pane Plus.jsx`) in this folder.
+3. Ensure that the `LpPlusAssets` folder (containing the icons) is in the same location as the script.
 
-## Features
-- Create various layer types: Text, Solid, Null Object, Shape, Camera, Adjustment
-- Delete selected layers
-- Create layer sequences based on selection order
+## Main Features
+- Quick creation of various layer types: Text, Solid, Null Object, Shape, Camera, Adjustment
+- Deletion of selected layers
+- Creation of layer sequences based on selection order
+- Splitting of all layers at the current time indicator
+- Creation of new compositions using the native After Effects dialog
 - User-friendly interface with icon buttons
 - Dockable panel in the workspace
-- Resizable window with responsive button alignment
-
-## Version History
-
-### v1.6.2 (Current)
-- Updated Text layer creation to ensure the name is updated without delay
-- Fixed error handling issue for layer naming
-- Improved compatibility with various After Effects versions
-
-### v1.6.1
-- Updated Text, Null Object, Shape, Camera, and Adjustment layer creation to use native After Effects commands
-- Fixed issues with Shape and Adjustment layer creation
-- Improved error handling and user feedback for all layer creation functions
-- Enhanced compatibility with different versions of After Effects
-
-### v1.6
-- Improved Solid layer creation to use the native "Solid Settings" dialog
-- Enhanced layer naming logic to respect user-given names in the native dialog
-- Implemented unique naming system for Solid layers to avoid duplicates
-- Solid layers now retain color names chosen by users (e.g., "Red Solid")
-- Improved handling of default layer names to ensure uniqueness in the composition
-
-### v1.5
-- Completely rewrote createLayerSequence function to correctly sequence selected layers
-- The function now places layers sequentially one after another, respecting their trimmed durations and original positions
-- The first selected layer maintains its original position in the timeline
-- Subsequent layers are placed one after another in the order of selection
-- Trimmed durations of each layer are preserved in the sequence
-
-### v1.4
-- Updated createLayerSequence function to respect layer in and out points
-
-### v1.3
-- Added new function to create a sequence of layers from selected layers
-
-### v1.2
-- User interface change: Added icons indicating the purpose of each button
-- Added two new buttons: delete layer and help
-
-### v1.1
-- Added validations for each button in the script
-- Made the panel dockable in the workspace
-- Added ability to adjust the size of the window with responsive button alignment
-
-### v1.0
-- Initial release with basic layer creation functions
+- Resizable window with adaptive button alignment
 
 ## Usage
 1. Open Adobe After Effects
@@ -70,18 +32,70 @@
    - Select layers in the desired order
    - Click the sequence button
    - The first selected layer will maintain its position, and subsequent layers will be placed one after another in the order of selection, respecting their trimmed durations
-5. For Solid layer creation:
-   - Click the Solid layer button
-   - Use the native "Solid Settings" dialog to choose color and name
-   - The script will ensure the name is unique in the composition
-6. For Text, Null Object, Shape, Camera, and Adjustment layer creation:
+5. For creating Solid, Text, Null Object, Shape, Camera, and Adjustment layers:
    - Click the respective button
-   - The native After Effects dialog will appear (if applicable)
+   - Use the native After Effects dialog (if applicable)
    - Choose your settings in the dialog
    - The script will ensure the name is unique in the composition
+6. To split all layers at the current time indicator:
+   - Click the "Crop any layer" button
+   - All layers will be split at the current time
+   - **Note:** If there is no active composition, you will be notified to create one first
+
+## Version History
+
+### v1.6.5 (Current Version)
+- Restored alert for active composition in the `splitAllLayers` function
+- Updated layer splitting functionality
+- Fixed command ID for creating new composition
+- Updated help text for the layer splitting button
+
+### v1.6.4
+- Adjusted the `splitAllLayers` function to split layers without individual notifications
+- Updated version text in the user interface
+- Updated help documentation
+
+### v1.6.3
+- Added button to split layers
+- Added button to create new composition
+- Improved help documentation
+
+### v1.6.2
+- Improved text layer creation
+- Fixed error handling issues in layer naming
+- Improved compatibility with various After Effects versions
+
+### v1.6.1
+- Updated layer creation to use native After Effects commands
+- Improved error handling and user feedback
+
+### v1.6
+- Improved solid layer creation using native dialog
+- Implemented unique naming system for layers
+
+### v1.5
+- Rewrote layer sequencing function
+
+### v1.4
+- Updated sequencing function to respect layer in and out points
+
+### v1.3
+- Added function to create layer sequences
+
+### v1.2
+- Added icons to the user interface
+- Added buttons for deleting layers and help
+
+### v1.1
+- Added validations for each button
+- Made panel dockable in the workspace
+- Added ability to adjust window size
+
+### v1.0
+- Initial release with basic layer creation functions
 
 ## Support
 If you need help or want to provide feedback, you can contact me here:
-https://linktr.ee/Dony.ae
+[https://linktr.ee/Dony.ae](https://linktr.ee/Dony.ae)
 
 Enjoy this script and happy creating! :>

@@ -4,7 +4,7 @@
 Layers Pane Plus is an advanced script for Adobe After Effects that provides extended functionality for layer creation and management. Designed to enhance workflow, this script offers an intuitive user interface with icon buttons for various layer operations.
 
 ## Current Version
-**v1.6.5** - This is the most recent and stable version of the script.
+**v1.7** - Latest update with enhanced layer splitting functionality and a new precompose feature.
 
 ## Installation
 1. Locate the After Effects ScriptUI Panels folder:
@@ -18,7 +18,8 @@ Layers Pane Plus is an advanced script for Adobe After Effects that provides ext
 - Quick creation of various layer types: Text, Solid, Null Object, Shape, Camera, Adjustment
 - Deletion of selected layers
 - Creation of layer sequences based on selection order
-- Splitting of all layers at the current time indicator
+- Splitting of layers at the current time indicator
+- Precompose selected layers using the native After Effects dialog
 - Creation of new compositions using the native After Effects dialog
 - User-friendly interface with icon buttons
 - Dockable panel in the workspace
@@ -37,14 +38,25 @@ Layers Pane Plus is an advanced script for Adobe After Effects that provides ext
    - Use the native After Effects dialog (if applicable)
    - Choose your settings in the dialog
    - The script will ensure the name is unique in the composition
-6. To split all layers at the current time indicator:
-   - Click the "Crop any layer" button
-   - All layers will be split at the current time
-   - **Note:** If there is no active composition, you will be notified to create one first
+6. To split layers at the current time indicator:
+   - Click the "Split Layers at Current Time" button
+   - **Note:** 
+     - If a layer is selected, only that layer will be split at the current time.
+     - If no layer is selected, all applicable layers will be split at the current time.
+7. To precompose layers:
+   - Select one or more layers in the active composition
+   - Click the "Precompose Selected Layers" button
+   - The native After Effects Precompose dialog will appear
+   - Configure your precomposition settings and confirm
 
 ## Version History
 
-### v1.6.5 (Current Version)
+### v1.7 (Current Version)
+- Renamed the layer splitting function for better clarity
+- Enhanced the layer splitting function to handle specific or all layers based on selection
+- Added a new button for quickly precomposing selected layers
+
+### v1.6.5
 - Restored alert for active composition in the `splitAllLayers` function
 - Updated layer splitting functionality
 - Fixed command ID for creating new composition
